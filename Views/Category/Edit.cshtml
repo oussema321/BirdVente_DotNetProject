@@ -1,0 +1,52 @@
+﻿@model BirdStore.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient mt-0 py-3">
+        <div class="row">
+            <div cat-12 text-center>
+                <h2 class="text-white py-2">Edit Category</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row">
+
+            <form asp-action="Edit">
+                <div class="border p-3 ">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-floating py-2 col-12">
+                        <input asp-for="Name" class="form-control border-0 shadow" />
+                        <label asp-for="Name" class="ms-2"></label>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating py-2 col-12">
+                        <input asp-for="DisplayOrder" class="form-control border-0 shadow" />
+                        <label asp-for="DisplayOrder" class="ms-2"></label>
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6 col-md-5">
+                            <button type="submit" class="btn btn-danger form-control">Update</button>
+                        </div>
+                        <div class="col-6 col-md-5">
+                            <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary border form-control">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

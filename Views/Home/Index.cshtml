@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Bird>
+
+<!-- Section d'annonces ou de promotions -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card p-3 shadow border-top border-5 rounded">
+            <h3 class="card-title h5 text-dark opacity-75 text-uppercase text-center">Annonces et Promotions</h3>
+
+            <div class="row">
+                <!-- Annonce 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
+                        <!-- Contenu de l'annonce -->
+                        <p class="card-text text-dark text-opacity-75">Nouvelles arrivées en magasin. Découvrez nos produits exclusifs pour vos oiseaux!</p>
+                        <a href="#" class="btn btn-dark bg-gradient border-0 form-control">En savoir plus</a>
+                    </div>
+                </div>
+
+                <!-- Annonce 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
+                        <!-- Contenu de l'annonce -->
+                        <p class="card-text text-dark text-opacity-75">Offre spéciale cette semaine sur les jouets pour oiseaux. Ne manquez pas cette occasion!</p>
+                        <a href="#" class="btn btn-dark bg-gradient border-0 form-control">Voir les offres</a>
+                    </div>
+                </div>
+
+                <!-- Annonce 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
+                        <!-- Contenu de l'annonce -->
+                        <p class="card-text text-dark text-opacity-75">Conseils de soins pour vos oiseaux. Consultez notre blog pour des informations utiles.</p>
+                        <a href="#" class="btn btn-dark bg-gradient border-0 form-control">Lire les conseils</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Galerie d'oiseaux -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card p-3 shadow border-top border-5 rounded">
+            <h3 class="card-title h5 text-dark opacity-75 text-uppercase text-center">Galerie d'oiseaux</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <img src="url_image_oiseau_1.jpg" class="img-fluid rounded" alt="Oiseau 1">
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <img src="url_image_oiseau_2.jpg" class="img-fluid rounded" alt="Oiseau 2">
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <img src="url_image_oiseau_3.jpg" class="img-fluid rounded" alt="Oiseau 3">
+                </div>
+                <!-- Ajoutez d'autres images au besoin -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">&nbsp;</div>
+
+<div class="row pb-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
+
+                        <img src="@product.ImageUrl" class="card-img-top rounded" />
+
+
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Name</p>
+                             
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-opacity-75 text-center mb-0">
+                                    List Price:
+                                    <span class="text-decoration-line-through">
+                                        @product.Price.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <a asp-action="Details"
+                               asp-route-productId="@product.Id"
+                               class="btn btn-dark  bg-gradient border-0 form-control">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="mt-4">&nbsp;</div>
+<!-- Ajout de la section pour les conseils sur la nourriture des oiseaux -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card p-3 shadow border-top border-5 rounded">
+            <h3 class="card-title h5 text-dark opacity-75 text-uppercase text-center">Conseils sur la nourriture des oiseaux</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Graines de qualité :</strong> Les graines constituent souvent la base de l'alimentation de nombreux oiseaux. Choisissez des mélanges de graines de haute qualité adaptés aux besoins spécifiques de votre espèce d'oiseau.
+                </li>
+                <li class="list-group-item">
+                    <strong>Fruits et légumes frais :</strong> Intégrez des fruits et légumes frais à l'alimentation de vos oiseaux pour apporter des vitamines, des minéraux et des antioxydants essentiels. Lavez soigneusement les fruits et légumes pour éliminer les pesticides.
+                </li>
+                <li class="list-group-item">
+                    <strong>Pellets ou granulés pour oiseaux :</strong> Certains oiseaux bénéficient des pellets ou granulés spécialement formulés pour leur espèce. Ces aliments sont conçus pour être nutritionnellement complets, évitant aux oiseaux de trier et de sélectionner uniquement leurs graines préférées.
+                </li>
+                <li class="list-group-item">
+                    <strong>Nourriture pour oiseaux gourmands en nectar :</strong> Si vous avez des oiseaux gourmands en nectar, comme les colibris ou les loriquets, fournissez une solution de nectar spéciale disponible dans le commerce. Évitez d'utiliser du sucre blanc, du miel ou du sirop d'érable.
+                </li>
+                <li class="list-group-item">
+                    <strong>Évitez les aliments toxiques :</strong> Certains aliments, tels que le chocolat, les avocats, les produits laitiers, les aliments salés et les aliments riches en matières grasses, sont toxiques pour les oiseaux. Évitez de donner ces aliments.
+                </li>
+                <li class="list-group-item">
+                    <strong>Eau propre et fraîche :</strong> Assurez-vous que vos oiseaux ont toujours accès à de l'eau propre et fraîche. Changez l'eau tous les jours pour éviter la contamination bactérienne.
+                </li>
+                <li class="list-group-item">
+                    <strong>Offrez une variété d'aliments :</strong> La variété est essentielle pour fournir tous les nutriments nécessaires. Offrez une gamme d'aliments pour garantir une alimentation équilibrée.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">&nbsp;</div>
+
+<!-- Formulaire pour envoyer une question -->
+<div class="row mt-4">
+    <div class="col-12">
+       
+            <div class="card p-3 shadow border-top border-5 rounded">
+                <h3 class="card-title h5 text-dark opacity-75 text-uppercase text-center">Envoyer une question</h3>
+                <div class="form-group">
+                    <label for="question">Votre question :</label>
+                    <textarea class="form-control" id="question" name="question" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>
+        
+    </div>
+</div>
+<div class="mt-4">&nbsp;</div>
